@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Recipe</title>
+    <link rel="stylesheet" href="ShareRecipe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <body>
+        <header>
+            <h1>Share Your Delicious Recipe</h1>
+        </header>
+        
+        <audio id="music-default" autoplay loop>
+            <source src="./Genshin Impact Main Theme.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <audio id="music-liyue" autoplay loop style="display:none;">
+            <source src="./Liyue.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <audio id="music-fragile-fantasy" autoplay loop style="display:none;">
+            <source src="./Fragile Fantasy.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <audio id="music-ruus-song" autoplay loop style="display:none;">
+            <source src="./Ruu's Song - Genshin Impact OST.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <div style="margin: 20px; text-align: center;">
+            <label for="music-select" style="color: #e6ca69; font-size: 1.2rem;">Select Background Music:</label>
+            <select id="music-select" style="padding: 10px; border-radius: 5px; font-size: 1rem;">
+                <option value="none" selected>None</option>
+                <option value="default">Genshin Impact Main Theme</option>
+                <option value="liyue">Liyue</option>
+                <option value="fragile-fantasy">Fragile Fantasy</option>
+                <option value="ruus-song">Ruu's Song</option> <!-- New option -->
+            </select>
+        </div>
+        
+    
+    
+        <section id="recipe-form">
+            <form id="submit-recipe">
+                <div class="circle-container">
+                    <div class="circle-wrapper">
+                        <div class="profile-circle" id="chef-photo" aria-label="Click to upload your photo"></div>
+                        <span class="circle-label">Click to upload your profile image</span>
+                        <input type="file" id="chef-photo-input" style="display: none;" accept="image/*" aria-label="Upload your photo">
+                    </div>
+    
+                    <div class="circle-wrapper">
+                        <div class="dish-circle" id="dish-photo" aria-label="Click to upload your dish photo"></div>
+                        <span class="circle-label">Click to upload dish image</span>
+                        <input type="file" id="dish-photo-input" style="display: none;" accept="image/*" aria-label="Upload your dish photo">
+                    </div>
+                </div>
+    
+                <div class="input-container">
+                    <label for="chef-name">Chef's Name:</label>
+                    <input type="text" id="chef-name" name="chef-name" placeholder="Enter chef's name" required aria-required="true">
+                </div>
+    
+                <div class="input-container">
+                    <label for="dish-name">Dish Name:</label>
+                    <input type="text" id="dish-name" name="dish-name" placeholder="Enter your dish name" required aria-required="true">
+                </div>
+    
+                <div class="input-container">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required aria-required="true">
+                        <option value="appetizers">Appetizers</option>
+                        <option value="mains">Mains</option>
+                        <option value="desserts">Desserts</option>
+                    </select>
+                </div>
+    
+                <div class="input-container">
+                    <label for="ingredients">Ingredients:</label>
+                    <textarea id="ingredients" name="ingredients" rows="4" placeholder="List your ingredients here" required aria-required="true"></textarea>
+                </div>
+    
+                <div id="instructions-container">
+                    <label>Instructions:</label>
+                    <div id="steps"></div>
+                    <button type="button" id="add-step">Add Step</button>
+                </div>
+            </form>
+        </section>
+    
+        <section id="preview">
+            <div id = "recipe priview">
+                <h2>Recipe Preview</h2>
+                <p><strong>Chef:</strong> <span id="preview-chef">N/A</span></p>
+                <div id="preview-chef-photo"></div>
+                <p><strong>Dish:</strong> <span id="preview-dish">N/A</span></p>
+                <div id="preview-dish-photo"></div>
+                <p><strong>Category:</strong> <span id="preview-category">N/A</span></p>
+                <p><strong>Ingredients:</strong> <span id="preview-ingredients">N/A</span></p>
+                <p><strong>Instructions:</strong></p>
+                <ul id="preview-steps"></ul>
+                <button id="share-recipe">Share Recipe</button>
+            </div>
+    
+    <div id="social-share">
+        <div class="social-button twitter" onclick="shareTwitter()">
+            <i class="fab fa-twitter"></i>
+        </div>
+        <div class="social-button linkedin" onclick="shareLinkedIn()">
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+        <div class="social-button facebook" onclick="shareFacebook()">
+            <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="social-button instagram" onclick="shareInstagram()">
+            <i class="fab fa-instagram"></i>
+        </div>
+        <div class="social-button whatsapp" onclick="shareWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="social-button email" onclick="shareEmail()">
+            <i class="fas fa-envelope"></i>
+        </div>
+    </div>
+    
+        </section>
+    
+        <footer>
+            <p>&copy; 2025 Recipe Sharing Website</p>
+        </footer>
+
+        <script src="ShareRecipe.js"></script>
+</body>
+</html>
